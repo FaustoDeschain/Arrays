@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>Document</title>
+</head>
+<body>
+
+
+	
+
+<div class="contenedor">
+	<h2>INDICE</h2>
+	<div class="contenedor">
+		<ul class="listContainer">
+			<li class="listElement">Declarar Array</li>
+			<li class="listElement">Longitud del Array</li>
+			<li class="listElement">Posicion de elementos</li>
+			<li class="listElement">Ultima Posicion</li>
+			<li class="listElement">Posicion con at</li>
+			<li class="listElement">Recorrer  Array</li>
+			<li class="listElement">Agregar al final</li>
+			<li class="listElement">Agregar al principio</li>
+			<li class="listElement">Cortar un array</li>
+			<li class="listElement">Borrar al final</li>
+			<li class="listElement">Borrar al principio</li>
+			<li class="listElement">Concatenar Arrays</li>
+			<li class="listElement">Comprobar existencia </li>
+			<li class="listElement">Armar a partir de otro</li>
+			<li class="listElement">Llenar posiciones </li>
+			<li class="listElement">Copiar Spread</li>
+			<li class="listElement">Concatenar Spread</li>
+			<li class="listElement">Sumar Spread</li>
+		</ul>
+	</div>	
+		<h1>Arrays</h1>
+		<p>Los arrays son colecciones de elementos de cualquier tipo, ya sean datos numericos,booleanos o tambien porque no objetos y funciones</p>
+
+		<p>Para crear un Array se utiliza la notacion <em>let</em>: </p>
+		
+		<span class="blackbox">let number = [ 2 , 3 , 4 , 5 ];</span>
+		
+		<p>Ahora si queremos ver la longitud de nuestro array en la consola</p>
+		
+		<span class="blackbox"> console.log( number.length );</span>
+
+		<p>Los elementos estan ubicados en una posicion numerada dentro del array comenzando desde cero. Para acceder a una posicion y mostrarla en consola </p>
+
+		<span class="blackbox">console.log(number[ posicion ]);</span>
+		
+
+		<p>Para entrar al ultimo usamos length - 1</p>
+		<span class="blackbox"> console.log( number.length-1 );</span>
+		<p>Otra manera de acceder a los elementos de un array es con el metodo <strong><em>at</em></strong> que nos permite acceder a los elementos indicandole indices de la misma manera que la notacion comun, la unica particularidad es que podemos darle indices negativos y recorre el array alrevez</p>
+
+		<span class="blackbox">console.log(number.at(0));</span>
+		
+		<p>Para recorrer un arreglo podemos usar un un <em>for</em></p>
+
+		<span class="blackbox"> for (i=0 ; i&ltnum.length ; i++) { <br> &emsp;&emsp; console.log(number[ i ]) <br> } </span>
+
+
+		<p>Vamos a insertar elemetos a un array con el metodo <em>push</em>, este metodo los agrega al final del array</p>	
+
+		<span class="blackbox">number.push( 6 )</span>
+
+		<p>Y este al principio</p>
+
+		<span class="blackbox">number.unshift("negra modelo")</span>
+
+		<p>Si quisieramos agregar o eliminar algun dato de alguna posicion especifica del array usamos el metodo <em>splice</em>. <br>Este metodo utiliza tres parametros, el primero para indicar la posicion del elemento a agregar, el segundo cuantos eliminar a partir de esa posicion y el tercero que es lo que se va a agregar</p>
+		
+		<span class="blackbox">number.splice( 2 , 0 ,"er" );</span>
+
+		<p>Ahora eliminaremos algo del array con el metodo <em>pop</em>, este metodo elimina el ultimo valor y lo devuelve, si quiero lo guardo asignando el metodo a una variable y lo muestro por consola</p>
+
+		<span class="blackbox"> let a = number.pop()<br>console.log(number)<br>console.log(a)</span>
+
+
+		<p>Pasa lo mismo con el metodo <em>shift</em>, la diferencia es que lo hace desde el principio del array</p>
+
+		<span class="blackbox"> let a = number.shift()<br>console.log(number)<br>console.log(a)</span>
+
+		<p>Ahora concatenaremos array con el metodo <em>concat</em>, para ello crearemos un nuevo array y guardaremos la concatenacion alli </p>
+		
+		<span class="blackbox">let combinado = number.concat(strings); <br> console.log(combinado)</span>
+
+		<p>Para buscar un elemento determinado se usa <em>indexOf</em>, esto nos devuelve un buleano para indicarnos que existe o no ese elemento buscado dentro del array. <br> Hay que tener en cuenta que si se busca un string hay que usar comillas.</p>
+
+		<span class="blackbox">console.log(combinado.indexOf("snacks"))</span>
+
+		<p>El metodo <em>slice</em> sirve para armar otro array a partir de uno que ya tengamos creado. Igualamos el metodo a una variable y nos guarda la nueva cadena, este metodo acepta dos parametros, desde donde empieza a tomar los elemetos y el segundo parametro donde los corta </p>
+
+		<span class="blackbox">let combinumber = combinado.slice(3,6)<br>console.log(combinumber)</span>
+
+
+		<p>El metodo <em>fill</em> me cambia los valores del array, acepta tres parametros el primero es con lo que se va a llenar, segundo es  donde empieza a llenar y el tercero  donde termina</p>
+		<span class="blackbox">combinado.fill( <q>gato</q>,1,4 )</span>
+
+		<p>Ahora si queremos copiar los valores de un array podemos usar el metodo <em>spread</em></p>
+		<span class="blackbox">numberCopy = [...number] <br>console.log(numberCopy)</span>
+		
+		<p>De la misma marea <em>spread</em> sirve para concatenar dos array de strings</p>
+		<span class="blackbox">let numerosCombinados = [...number,...combinado] <br>console.log(numerosCombinados)</span>
+
+		<p>O para sumar los valores de un array de numeros</p>
+		<span class="blackbox">number = [1,2,3,4] <br>
+ 		<br>function sumaArray (a,b,c,d){ <br>return a+b+c+d <br>} <br>console.log(sumaArray(...number))</span>
+		<span class="blackbox"></span>
+		<span class="blackbox"></span>
+	</div>
+
+
+
+	<script type="text/javascript" src="javascript.js"></script>
+
+</body>
+</html>
